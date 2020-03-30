@@ -1,21 +1,15 @@
 import React from 'react';
 import './chat-app.css';
 
-const avatarURL = 'https://randomuser.me/api/portraits/men/33.jpg';
-const avatarName = {
-    firstName:'Timmothy',
-    lastName: 'Hopkins'
-}
-
-function Contact() {
+function Contact(props) {
     return (
         <div className="Contact">
-            <img className="avatar" src={avatarURL} />
+            <img className="avatar" src={props.avatar} />
             <div className="name">
-                {avatarName.firstName + " " + avatarName.lastName}
+                {props.name}
                 <div className="status">
-                    <span className="status-online"></span>
-                    online
+                    <span className={props.online ? "status-online" : "status-offline"}></span>
+                    {props.online? props.isOnLine : props.isOffLine}
                 </div>
             </div>
             
